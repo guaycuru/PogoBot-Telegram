@@ -105,7 +105,7 @@ module.exports = function(config, bot, listener) {
     }
 
     function disappearTime(timestamp) {
-        return moment.unix(timestamp).format('HH:mm:ss');
+        return moment.unix(timestamp).format('hh:mma');
     }
 
     function getMap(lat, lon, cb) {
