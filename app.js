@@ -7,7 +7,6 @@ var logger   = require('winston'),
 
 config.logger = logger;
 
-mongoose.Promise = global.Promise;
 mongoose.connect(config.mongodb);
 var db = mongoose.connection;
 db.once('open', function() {

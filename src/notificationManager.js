@@ -93,7 +93,8 @@ module.exports = function(config, bot, listener) {
                 photo,
                 'A wild ' + pokemon[payload.pokemon_id] + ' appeared!\n' +
                 timeToDisappear(payload.disappear_time) + ' left, ' +
-                'disappears at ' + disappearTime(payload.disappear_time) + '\n',
+                'disappears at ' + disappearTime(payload.disappear_time) + '\n' +
+                'comgooglemaps://?saddr=&daddr=' + payload.latitude + ',' + payload.longitude + '&directionsmode=driving' + '\n',
                 [payload.latitude, payload.longitude]
             );
         });
@@ -105,7 +106,7 @@ module.exports = function(config, bot, listener) {
     }
 
     function disappearTime(timestamp) {
-        return moment.unix(timestamp).format('HH:mm:ss');
+        return moment.unix(timestamp).format('hh:mma');
     }
 
     function getMap(lat, lon, cb) {
